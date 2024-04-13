@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Table</title>
+</head>
+<body>
+    <h1>Sensor Data Table</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sensor ID</th>
+                <th>Date of Registration</th>
+                <th>Location</th>
+                <th>Temperature</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in sensor_data %}
+            <tr>
+                <td>{{ data.sensor_id }}</td>
+                <td>{{ data.date_of_registration }}</td>
+                <td>{{ data.location }}</td>
+                <td>{{ data.temperature }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

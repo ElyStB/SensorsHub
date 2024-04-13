@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% load static %}
+
+{% block content %}
+<div class="login-register-div">
+        <div class="login-register-box">
+            <form action="{% url 'register' %}" method="post">
+            <p>
+                    {{ form.username|placeholder:"Username" }}
+                </p>
+                <p>
+                    {{ form.password1|placeholder:"Password" }}
+                </p>
+
+                <p>
+                    {{ form.password2|placeholder:"Confirm password" }}
+                </p>
+            <button type="submit">Register</button>
+                {% csrf_token %}
+            </form>
+
+    </div>
+    <div class="second-option">
+            <p>Have an account? <a href="{% url 'login' %}">Log in</a></p>
+        </div>
+    </div>
+{% endblock %}

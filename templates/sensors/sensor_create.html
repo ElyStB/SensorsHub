@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Sensor</title>
+</head>
+<body>
+    <form action="{% url 'sensor create' pk=object.pk %}" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+
+        <button class="add-btn" type="submit">Add Sensor</button>
+    </form>
+</body>
+{% endblock %}

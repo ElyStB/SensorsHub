@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Profile</title>
+</head>
+<body>
+   <form action="{% url 'profile delete' request.user.pk %}" method="post">
+       {% csrf_token %}
+
+       <div class="sure-buttons">
+           <!-- Yes (Delete Profile) Button -->
+           <button>Yes</button>
+
+           <!-- Go back Button -->
+           <a class="edit-btn" href="javascript:history.back()">Go Back</a>
+       </div>
+   </form>
+</body>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Details</title>
+</head>
+
+<body>
+    {% if object.profile_picture %}
+        <img src="{{ object.profile_picture }}" alt="img8"/>
+    {% else %}
+        <img src="{% static 'images/user.png' %}" width="100" height="100" alt="user_img" class="img-thumbnail">
+    {% endif %}
+
+    {% if object.full_name %}
+        <h3 class="names">{{ object.full_name }}</h3>
+    {% endif %}
+
+   <div class="personal">
+                <div class="edit">
+                    <p>{{ profile.user.username }}</p>
+
+                    {% if object.pk == request.user.pk %}
+                        <a href="{% url 'profile edit' pk=object.pk %}">
+                            <img
+                                    class="edit-img"
+                                    src="{% static 'images/edit-pen-icon-6.jpg' %}" width="40" height="40"
+                                    alt="edit button"
+                            />
+                        </a>
+
+                        <a href="{% url 'profile delete' pk=object.pk %}">
+                            <img
+                                    class="bin-img"
+                                    src="{% static 'images/icon-remove-22.jpg' %}" width="40" height="40"
+                                    alt="bin button"
+                            />
+                        </a>
+                    {% endif %}
+                </div>
+</div>
+<div class="table-active">
+
+</div>
+
+</body>
+{% endblock %}

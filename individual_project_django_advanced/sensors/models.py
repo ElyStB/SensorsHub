@@ -22,7 +22,7 @@ class Sensor(models.Model):
     data_of_registration = models.DateTimeField(
         auto_now_add=True,
     )
-# TODO: neobhodima li e tazi kolona?
+
     is_register_to_user = models.BooleanField(
         default=False,
     )
@@ -38,3 +38,9 @@ class Sensor(models.Model):
         on_delete=models.CASCADE,
         related_name="sensors",
     )
+
+    def __str__(self):
+        return self.sensor_id
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
